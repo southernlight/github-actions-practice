@@ -1,0 +1,19 @@
+# .github/workflows/deploy.yml
+
+name: Simple CI Workflow  # 워크플로우 이름
+
+on:                       # 실행 조건 정의
+  push:                   # push 이벤트 발생 시
+    branches:
+      - main              # 특히 main 브랜치에 push될 때만 실행
+
+jobs:                     # 워크플로우에 포함된 작업들
+  build:                  # 작업 이름
+    runs-on: ubuntu-latest  # Ubuntu 환경에서 실행
+
+    steps:                # 단계 (step) 정의
+      - name: Checkout code
+        uses: actions/checkout@v3  # GitHub 저장소 코드 가져오기
+
+      - name: Say Hello
+        run: echo "Hello from GitHub Actions!"  # 간단한 명령 실행
